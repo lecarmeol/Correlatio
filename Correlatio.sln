@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Correlatio", "Correlatio\Correlatio.csproj", "{2A341873-351D-46F2-8C02-02D160B57DEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RICPFitter", "..\RICPFitter\RICPFitter\RICPFitter.csproj", "{5D3737DE-2C66-46A5-A771-401C2C8F42F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A341873-351D-46F2-8C02-02D160B57DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A341873-351D-46F2-8C02-02D160B57DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A341873-351D-46F2-8C02-02D160B57DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A341873-351D-46F2-8C02-02D160B57DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3737DE-2C66-46A5-A771-401C2C8F42F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3737DE-2C66-46A5-A771-401C2C8F42F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3737DE-2C66-46A5-A771-401C2C8F42F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3737DE-2C66-46A5-A771-401C2C8F42F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AB72935-EE64-4670-8838-B06A23FCAFF1}
+	EndGlobalSection
+EndGlobal

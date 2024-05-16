@@ -1,4 +1,4 @@
-﻿namespace PhysicsPlotter
+﻿namespace Correlatio
 {
     partial class FormMain
     {

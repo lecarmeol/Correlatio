@@ -1,12 +1,14 @@
-﻿using PhysicsPlotter.Presenters;
-using PhysicsPlotter.Views;
+﻿using Correlatio.Models;
+using Correlatio.Presenters;
+using Correlatio.Views;
+using PhysicsPlotter.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhysicsPlotter
+namespace Correlatio
 {
     internal static class Program
     {
@@ -22,9 +24,11 @@ namespace PhysicsPlotter
             UserControlFitFunctionView userControlFitFunctionView = new();
             FormMain main = new(userControlFitFunctionView);
 
-            //new FitFunctionPresenter(userControlFitFunctionView, new Gaussian(), new Gaussian());
             string xmlFP = AppDomain.CurrentDomain.BaseDirectory + "ListOfFunctions.xml";
-            _ = new FunctionCollectionPresenter(userControlFitFunctionView, Models.FunctionCollection.FromXML(xmlFP));
+            FitBox1D fitBox = new(xmlFP);
+            _ = new GraphPresenter(userControlFitFunctionView, fitBox);
+            _ = new InputDataPresenter(userControlFitFunctionView, fitBox, FunctionCollection.FromXML(xmlFP));
+            _ = new FitDataPresenter(userControlFitFunctionView, fitBox);
 
             Application.Run(main);
         }

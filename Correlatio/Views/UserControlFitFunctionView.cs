@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace PhysicsPlotter.Views
+namespace Correlatio.Views
 {
-    public partial class UserControlFitFunctionView : UserControl, IFitFunctionView
+    public partial class UserControlFitFunctionView : UserControl, IGraphView, IInputDataView, IFitDataView
     {
         private readonly FormsPlot formsPlot = new();
         private IScatterSource genData, fitData;
@@ -29,6 +30,7 @@ namespace PhysicsPlotter.Views
         public event Action Fit;
         public event Action<string> SelectGenFunc;
         public event Action<string> SelectFitFunc;
+        public event Action<string, string, string, bool, string> LoadFromFile;
 
         public void BindFuncFitParameters(object parameters)
         {
@@ -38,11 +40,6 @@ namespace PhysicsPlotter.Views
         public void BindFuncGenParameters(object parameters)
         {
             propertyGridGenFunc.SelectedObject = parameters;
-        }
-
-        public void BindGuessParameters(object parameters)
-        {
-            propertyGridGuess.SelectedObject = parameters;
         }
 
         public void InitFittableList(List<string> fittableList, int defaultSelectedIdx)
@@ -69,7 +66,7 @@ namespace PhysicsPlotter.Views
             propertyGridFitFunc.Refresh();
         }
 
-        public void UpdateRawData(double[] xData, double[] yData)
+        public void UpdateInputData(double[] xData, double[] yData)
         {
             genData = new ScottPlot.DataSources.ScatterSourceDoubleArray(xData, yData);
             fitData = null;
@@ -117,6 +114,18 @@ namespace PhysicsPlotter.Views
             }
             formsPlot.Plot.Axes.AutoScale();
             formsPlot.Refresh();
+        }
+
+        public void UpdateInputInfo(string title, string xLabel, string yLabel)
+        {
+            formsPlot.Plot.Title(title);
+            formsPlot.Plot.XLabel(xLabel);
+            formsPlot.Plot.YLabel(yLabel);
+        }
+
+        public void InitLoadFileSettings(string decimalSeparator = ".", string columnDelimiter = ",", bool hasHeader = false, string title = null)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using PhysicsPlotter.Views;
+﻿using Correlatio.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhysicsPlotter
+namespace Correlatio
 {
     public partial class FormMain : Form
     {

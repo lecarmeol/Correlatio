@@ -1,4 +1,5 @@
-﻿using RICPFitter.Functions;
+﻿using Correlatio.Models;
+using RICPFitter.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,39 +9,30 @@ using System.Xml;
 
 namespace PhysicsPlotter.Models
 {
-    public class FunctionCollection
+    public class FunctionCollection : IFunctionCollection
     {
-        public List<IFittable> FittableFunctions { get; set; } = [];
-
-        public List<IGenerable> GenerableFunctions { get; set; } = [];
+        public List<IFittable> Functions { get; set; } = [];
 
         public FunctionCollection()
         {
             
         }
 
-        public void SetSelectedFitFunction(string name)
+        public FunctionCollection(List<IFittable> listOfFunctions) : this()
         {
-            selectedFitFuncIdx = FittableFunctions.FindIndex(f => f.Name == name);
-            if (selectedFitFuncIdx == -1) throw new Exception($"Function {name} not found in the fittable function list");
-        }
-        private int selectedFitFuncIdx = 0;
-
-        public IFittable GetSelectedFitFunction()
-        {
-            return FittableFunctions[selectedFitFuncIdx];
+            Functions = listOfFunctions;
         }
 
-        public void SetSelectedGenerableFunction(string name)
+        public IFittable FindByName(string name, string category = null)
         {
-            selectedGenFuncIdx = GenerableFunctions.FindIndex(f => f.Name == name);
-            if (selectedGenFuncIdx == -1) throw new Exception($"Function {name} not found in the generable function list");
-        }
-        private int selectedGenFuncIdx = 0;
-
-        public IGenerable GetSelectedGenerableFunction()
-        {
-            return GenerableFunctions[selectedGenFuncIdx];
+            if (category != null)
+            {
+                return Functions.Find(func => func.Name == name &&  func.Category == category);
+            }
+            else
+            {
+                return Functions.Find(func => func.Name == name);
+            }
         }
 
         public static FunctionCollection FromXML(string xmlFilePath)
@@ -54,10 +46,15 @@ namespace PhysicsPlotter.Models
             {
                 if (node.Name == "Function")
                 {
-                    result.FittableFunctions.Add(ExternalFunc.FromXml(node));
-                    result.GenerableFunctions.Add(ExternalFunc.FromXml(node));
+                    result.Functions.Add(ExternalFunc.FromXml(node));
                 }
             }
+            return result;
+        }
+
+        public object Clone()
+        {
+            IFunctionCollection result = new FunctionCollection(new List<IFittable>(Functions));
             return result;
         }
     }

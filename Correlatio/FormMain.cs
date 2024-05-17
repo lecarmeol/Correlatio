@@ -18,10 +18,14 @@ namespace Correlatio
             InitializeComponent();
         }
 
-        public FormMain(UserControlFitFunctionView userControlFitFunctionView) : this()
+        public FormMain(UserControlGraphView graphView, UserControlInputData inputDataView, UserControlFitData fitDataView) : this()
         {
-            this.Controls.Add(userControlFitFunctionView);
-            userControlFitFunctionView.Dock = DockStyle.Fill;
+            splitContainerMain.Panel2.Controls.Add(graphView);
+            graphView.Dock = DockStyle.Fill;
+            tlpParam.Controls.Add(inputDataView, 0, 0);
+            tlpParam.Controls.Add(fitDataView, 0, 1);
+            inputDataView.Dock = DockStyle.Fill;
+            fitDataView.Dock = DockStyle.Fill;
         }
     }
 }

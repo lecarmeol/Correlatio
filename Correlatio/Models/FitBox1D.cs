@@ -58,9 +58,9 @@ namespace Correlatio.Models
             }
         }
 
-        private void FitFunction_FitPerformed(double[] x, double[] y, double cod)
+        private void FitFunction_FitPerformed(IFittable func, double[] x, double[] y)
         {
-            FitDataChanged?.Invoke(x, y, cod);
+            FitDataChanged?.Invoke(func, x, y);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Correlatio.Models
         }
 
         public event Action<double[], double[]> InputDataChanged;
-        public event Action<double[], double[], double> FitDataChanged;
+        public event Action<IFittable, double[], double[]> FitDataChanged;
         public event Action<IFittable> FitFunctionChanged;
     }
 }

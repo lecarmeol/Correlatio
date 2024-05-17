@@ -34,6 +34,12 @@ namespace Correlatio.Views
         void InitLoadFileSettings(string decimalSeparator = ".", string columnDelimiter = ",", bool hasHeader = false, string title = null);
 
         /// <summary>
+        /// Update error message
+        /// </summary>
+        /// <param name="errorMessage"></param>
+        void UpdateErrorMessage(string errorMessage);
+
+        /// <summary>
         /// Fired to generate input data from the selected function
         /// </summary>
         event Action<double, double, int> Generate;

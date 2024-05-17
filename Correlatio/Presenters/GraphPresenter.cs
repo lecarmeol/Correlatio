@@ -1,5 +1,6 @@
 ﻿using Correlatio.Models;
 using Correlatio.Views;
+using RICPFitter.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,15 @@ namespace Correlatio.Presenters
             view.UpdateInputData(x, y);
         }
 
-        private void FitBox_FitDataChanged(double[] x, double[] y, double cod)
+        private void FitBox_FitDataChanged(IFittable function, double[] x, double[] y)
         {
-            view.UpdateFitData(x, y, cod);
+            string fitInfo = function.Description + Environment.NewLine;
+            foreach(var param in function.Parameters)
+            {
+                fitInfo += $"{param.Name} = {param.Value}" + Environment.NewLine;
+            }
+            fitInfo += $"R² = {Math.Round(function.CoeffOfDetermination, 4)}"; 
+            view.UpdateFitData(x, y, fitInfo);
         }
 
     }

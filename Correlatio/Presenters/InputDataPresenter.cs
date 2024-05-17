@@ -3,6 +3,7 @@ using Correlatio.Views;
 using RICPFitter.Functions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,19 +34,67 @@ namespace Correlatio.Presenters
 
         private void View_LoadFromFile(string filePath, string DecimalSeparator, string ColumnDelimiter, bool hasHeader, string title)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var reader = new StreamReader(filePath);
+                List<string> colX = [];
+                List<string> colY = [];
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(ColumnDelimiter);
+
+                    colX.Add(values[0]);
+                    colY.Add(values[1]);
+                }
+                DataSet inputData = new() { Title = title };
+                if (hasHeader)
+                {
+                    inputData.XLabel = colX[0];
+                    inputData.YLabel = colY[0];
+                    colX.RemoveAt(0);
+                    colY.RemoveAt(0);
+                }
+                inputData.XData = [.. colX.ConvertAll( x =>
+                Double.Parse(x.Replace(',','.'),
+                System.Globalization.NumberStyles.Any,
+                System.Globalization.CultureInfo.InvariantCulture))];
+                inputData.YData = [.. colY.ConvertAll(y =>
+                Double.Parse(y.Replace(',', '.'),
+                System.Globalization.NumberStyles.Any,
+                System.Globalization.CultureInfo.InvariantCulture))];
+                fitBox.InputData = inputData;
+            }
+            catch (Exception ex)
+            {
+                view.UpdateErrorMessage(errorMessage: ex.Message);
+            }
         }
 
         private void View_Generate(double start, double end, int nbOfPoints)
         {
-            (double[] x, double[] y) = selectedFunction.GenerateData(start, end, nbOfPoints);
-            fitBox.InputData = new DataSet(x, y, selectedFunction.Name, "x (a.u.)", "y (a.u.)");
+            try
+            {
+                (double[] x, double[] y) = selectedFunction.GenerateData(start, end, nbOfPoints);
+                fitBox.InputData = new DataSet(x, y, selectedFunction.Name, "x (a.u.)", "y (a.u.)");
+            }
+            catch (Exception ex)
+            {
+                view.UpdateErrorMessage(errorMessage: ex.Message);
+            }
         }
 
         private void View_SelectGenFunc(string name)
         {
-            selectedFunction = functionCollection.FindByName(name);
-            view.BindFuncGenParameters(selectedFunction);
+            try
+            {
+                selectedFunction = functionCollection.FindByName(name);
+                view.BindFuncGenParameters(selectedFunction);
+            }
+            catch (Exception ex)
+            {
+                view.UpdateErrorMessage(errorMessage: ex.Message);
+            }
         }
     }
 }

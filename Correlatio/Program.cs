@@ -21,14 +21,16 @@ namespace Correlatio
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            UserControlFitFunctionView userControlFitFunctionView = new();
-            FormMain main = new(userControlFitFunctionView);
+            UserControlGraphView ucGraphView = new();
+            UserControlInputData ucInputData = new();
+            UserControlFitData ucFitData = new();
+            FormMain main = new(ucGraphView, ucInputData, ucFitData);
 
             string xmlFP = AppDomain.CurrentDomain.BaseDirectory + "ListOfFunctions.xml";
             FitBox1D fitBox = new(xmlFP);
-            _ = new GraphPresenter(userControlFitFunctionView, fitBox);
-            _ = new InputDataPresenter(userControlFitFunctionView, fitBox, FunctionCollection.FromXML(xmlFP));
-            _ = new FitDataPresenter(userControlFitFunctionView, fitBox);
+            _ = new GraphPresenter(ucGraphView, fitBox);
+            _ = new InputDataPresenter(ucInputData, fitBox, FunctionCollection.FromXML(xmlFP));
+            _ = new FitDataPresenter(ucFitData, fitBox);
 
             Application.Run(main);
         }

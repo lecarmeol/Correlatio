@@ -31,7 +31,7 @@ namespace Correlatio.Views
         /// </summary>
         /// <param name="xData"></param>
         /// <param name="yData"></param>
-        /// <param name="cod"></param>
-        void UpdateFitData(double[] xData, double[] yData, double cod);
+        /// <param name="fitInfo"></param>
+        void UpdateFitData(double[] xData, double[] yData, string fitInfo);
     }
 }

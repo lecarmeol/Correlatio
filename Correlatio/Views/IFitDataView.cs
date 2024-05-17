@@ -19,10 +19,25 @@ namespace Correlatio.Views
         void InitFittableList(List<string> fittableList, int defaultSelectedIdx);
 
         /// <summary>
+        /// Initialize the export options
+        /// </summary>
+        /// <param name="decimalSeparator"></param>
+        /// <param name="columnDelimiter"></param>
+        /// <param name="addHeader"></param>
+        /// <param name="addInputData"></param>
+        void InitExportOptions(string decimalSeparator = ".", string columnDelimiter = ",", bool addHeader = false, bool addInputData = true);
+
+        /// <summary>
         /// Bind the parameters of the fit function
         /// </summary>
         /// <param name="parameters"></param>
         void BindFuncFitParameters(object parameters);
+
+        /// <summary>
+        /// Update error message
+        /// </summary>
+        /// <param name="errorMessage"></param>
+        void UpdateErrorMessage(string errorMessage);
 
         /// <summary>
         /// Fired to start fit calculation
@@ -33,6 +48,17 @@ namespace Correlatio.Views
         /// Fired to select a function for fit generation
         /// </summary>
         event Action<string> SelectFitFunc;
+
+        /// <summary>
+        /// Fired when a data export is request<br/>
+        /// Arguments:<br/>
+        /// - File path (string)<br/>
+        /// - Decimal separator (string)<br/>
+        /// - Column separator (string)<br/>
+        /// - Add header (bool)<br/>
+        /// - Add input data (bool)<br/>
+        /// </summary>
+        event Action<string, string, string, bool, bool> Export;
 
     }
 }

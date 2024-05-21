@@ -34,31 +34,32 @@ Versatile data fit application for lazy scientists
 
 ![Generate data](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/01b_Generate_data.png)
 
-   2.1 Choose your input function
-   2.2 Edit "Parameters" collection to set the desired equation
-   2.3 Add randomness if wished
-   2.4 Choose the start and end value and the number of points
-   2.5 Click on "Generate"
-4. Configure fitting parameters :
+    2.1 Choose your input function
+    2.2 Edit "Parameters" collection to set the desired equation
+    2.3 Add randomness if wished
+    2.4 Choose the start and end value and the number of points
+    2.5 Click on "Generate"
+3. Configure fitting parameters :
 
 ![Fit configuration](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/02_Fit_configuration.png)   
    
-   3.1 Choose your fit function (if not found read further to learn hiw to add your own functions)
-   3.2 Edit the initial guess
+    3.1 Choose your fit function (if not found read further to learn hiw to add your own functions)
+    3.2 Edit the initial guess
 
 ![Edit initial guess](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/03_Edit_initial_guesses.png)   
    
-   3.3 Click on "Do fit"
-5. Read and export fit result :
-   4.1 Fitted coefficients are visible in Fit configuration --> 1) General --> Parameters collection
+    3.3 Click on "Do fit"
+4. Read and export fit result:
+
+    4.1 Fitted coefficients are visible in Fit configuration --> 1) General --> Parameters collection
 
  ![Check result](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/04_Check_fit_result.png)     
    
-   4.2 The coefficient of determination (R²) is in the "3) Fit" section
-   4.3 Data can be exported in the "Export" panel
+    4.2 The coefficient of determination (R²) is in the "3) Fit" section
+    4.3 Data can be exported in the "Export" panel
 
 ![Export result](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/05_Export_data.png)   
    
-   4.4 Graph can also be exported by right-clicking on it and choosing "Save image" or "Show/Hide export panel" to get size options
+    4.4 Graph can also be exported by right-clicking on it and choosing "Save image" or "Show/Hide export panel" to get size options
 
 ![Export graph](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/06_Export_graph.png)   

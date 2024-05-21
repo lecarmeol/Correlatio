@@ -16,6 +16,8 @@ namespace Correlatio
         public FormMain()
         {
             InitializeComponent();
+            BackColor = ColorTheme.BG;
+            ForeColor = ColorTheme.Text;
         }
 
         public FormMain(UserControlGraphView graphView, UserControlInputData inputDataView, UserControlFitData fitDataView) : this()

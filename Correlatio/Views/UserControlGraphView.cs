@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ScottPlot.Plottables;
 using ScottPlot.DataSources;
+using System.Drawing.Imaging;
 
 namespace Correlatio.Views
 {
@@ -22,6 +23,10 @@ namespace Correlatio.Views
         public UserControlGraphView()
         {
             InitializeComponent();
+            labelTitle.ForeColor = ColorTheme.Title;
+            tlpExport.BackColor = ColorTheme.BG;
+            formsPlot.BackColor = ColorTheme.BG;
+            labelExportTitle.ForeColor = ColorTheme.SubTitle;
 
             // Custom context menu
             formsPlot.Menu.AddSeparator();

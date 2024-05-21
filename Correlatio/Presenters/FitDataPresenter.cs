@@ -66,6 +66,7 @@ namespace Correlatio.Presenters
         {
             try
             {
+                if (fitBox.InputData == null) throw new NullReferenceException("No input data to fit");
                 fitBox.FitFunction.DoFit(fitBox.InputData.XData, fitBox.InputData.YData);
             }
             catch (Exception ex)

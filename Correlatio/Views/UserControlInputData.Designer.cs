@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new System.Windows.Forms.Label();
+            labelTitle = new System.Windows.Forms.Label();
             labelFromFile = new System.Windows.Forms.Label();
             tlpFromFile = new System.Windows.Forms.TableLayoutPanel();
             textBoxTitle = new System.Windows.Forms.TextBox();
@@ -58,42 +58,41 @@
             tlpMain.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // labelTitle
             // 
-            label1.AutoSize = true;
-            label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            label1.Dock = System.Windows.Forms.DockStyle.Top;
-            label1.Font = new System.Drawing.Font("Space Grotesk Light Medium", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(0, 0);
-            label1.Margin = new System.Windows.Forms.Padding(0);
-            label1.Name = "label1";
-            label1.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            label1.Size = new System.Drawing.Size(534, 37);
-            label1.TabIndex = 1;
-            label1.Text = "INPUT DATA";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            labelTitle.AutoSize = true;
+            labelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            labelTitle.Font = new System.Drawing.Font("Space Grotesk Light Medium", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            labelTitle.Location = new System.Drawing.Point(0, 0);
+            labelTitle.Margin = new System.Windows.Forms.Padding(0);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            labelTitle.Size = new System.Drawing.Size(546, 37);
+            labelTitle.TabIndex = 1;
+            labelTitle.Text = "INPUT DATA";
+            labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelFromFile
             // 
             labelFromFile.AutoSize = true;
-            labelFromFile.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             labelFromFile.Dock = System.Windows.Forms.DockStyle.Top;
             labelFromFile.Font = new System.Drawing.Font("Space Grotesk Light Medium", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             labelFromFile.Location = new System.Drawing.Point(6, 49);
             labelFromFile.Margin = new System.Windows.Forms.Padding(6, 12, 6, 0);
             labelFromFile.Name = "labelFromFile";
             labelFromFile.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            labelFromFile.Size = new System.Drawing.Size(522, 31);
+            labelFromFile.Size = new System.Drawing.Size(534, 31);
             labelFromFile.TabIndex = 2;
             labelFromFile.Text = "From file";
             labelFromFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             labelFromFile.Click += LabelFromFile_Click;
+            labelFromFile.MouseEnter += LabelSubtitle_MouseEnter;
+            labelFromFile.MouseLeave += LabelSubtitle_MouseLeave;
             // 
             // tlpFromFile
             // 
             tlpFromFile.AutoSize = true;
             tlpFromFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            tlpFromFile.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             tlpFromFile.ColumnCount = 2;
             tlpFromFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tlpFromFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -112,15 +111,14 @@
             tlpFromFile.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpFromFile.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpFromFile.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpFromFile.Size = new System.Drawing.Size(522, 136);
+            tlpFromFile.Size = new System.Drawing.Size(534, 136);
             tlpFromFile.TabIndex = 3;
             // 
             // textBoxTitle
             // 
-            textBoxTitle.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
             textBoxTitle.Dock = System.Windows.Forms.DockStyle.Top;
             textBoxTitle.Location = new System.Drawing.Point(145, 64);
-            textBoxTitle.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            textBoxTitle.Margin = new System.Windows.Forms.Padding(6, 3, 18, 3);
             textBoxTitle.Name = "textBoxTitle";
             textBoxTitle.Size = new System.Drawing.Size(371, 25);
             textBoxTitle.TabIndex = 6;
@@ -150,12 +148,11 @@
             // 
             // textBoxColumnSep
             // 
-            textBoxColumnSep.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
-            textBoxColumnSep.Dock = System.Windows.Forms.DockStyle.Top;
+            textBoxColumnSep.Dock = System.Windows.Forms.DockStyle.Left;
             textBoxColumnSep.Location = new System.Drawing.Point(145, 3);
-            textBoxColumnSep.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            textBoxColumnSep.Margin = new System.Windows.Forms.Padding(6, 3, 18, 3);
             textBoxColumnSep.Name = "textBoxColumnSep";
-            textBoxColumnSep.Size = new System.Drawing.Size(371, 25);
+            textBoxColumnSep.Size = new System.Drawing.Size(67, 25);
             textBoxColumnSep.TabIndex = 3;
             textBoxColumnSep.Text = ",";
             textBoxColumnSep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -173,12 +170,12 @@
             // buttonLoadFromFile
             // 
             buttonLoadFromFile.AutoSize = true;
-            buttonLoadFromFile.BackColor = System.Drawing.Color.FromArgb(190, 190, 190);
             tlpFromFile.SetColumnSpan(buttonLoadFromFile, 2);
             buttonLoadFromFile.Dock = System.Windows.Forms.DockStyle.Top;
             buttonLoadFromFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonLoadFromFile.Location = new System.Drawing.Point(12, 98);
-            buttonLoadFromFile.Margin = new System.Windows.Forms.Padding(12, 6, 12, 6);
+            buttonLoadFromFile.Font = new System.Drawing.Font("Space Grotesk Light", 10.25F, System.Drawing.FontStyle.Bold);
+            buttonLoadFromFile.Location = new System.Drawing.Point(18, 98);
+            buttonLoadFromFile.Margin = new System.Windows.Forms.Padding(18, 6, 18, 6);
             buttonLoadFromFile.Name = "buttonLoadFromFile";
             buttonLoadFromFile.Size = new System.Drawing.Size(498, 32);
             buttonLoadFromFile.TabIndex = 7;
@@ -189,24 +186,24 @@
             // labelFromFunction
             // 
             labelFromFunction.AutoSize = true;
-            labelFromFunction.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             labelFromFunction.Dock = System.Windows.Forms.DockStyle.Top;
             labelFromFunction.Font = new System.Drawing.Font("Space Grotesk Light Medium", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             labelFromFunction.Location = new System.Drawing.Point(6, 228);
             labelFromFunction.Margin = new System.Windows.Forms.Padding(6, 12, 6, 0);
             labelFromFunction.Name = "labelFromFunction";
             labelFromFunction.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            labelFromFunction.Size = new System.Drawing.Size(522, 31);
+            labelFromFunction.Size = new System.Drawing.Size(534, 31);
             labelFromFunction.TabIndex = 4;
             labelFromFunction.Text = "From function";
             labelFromFunction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             labelFromFunction.Click += LabelFromFunction_Click;
+            labelFromFunction.MouseEnter += LabelSubtitle_MouseEnter;
+            labelFromFunction.MouseLeave += LabelSubtitle_MouseLeave;
             // 
             // tlpFunction
             // 
             tlpFunction.AutoSize = true;
             tlpFunction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            tlpFunction.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             tlpFunction.ColumnCount = 5;
             tlpFunction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tlpFunction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -233,7 +230,7 @@
             tlpFunction.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpFunction.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpFunction.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpFunction.Size = new System.Drawing.Size(522, 446);
+            tlpFunction.Size = new System.Drawing.Size(534, 446);
             tlpFunction.TabIndex = 5;
             tlpFunction.Visible = false;
             // 
@@ -241,15 +238,14 @@
             // 
             tlpFunction.SetColumnSpan(propertyGridGenFunc, 5);
             propertyGridGenFunc.Dock = System.Windows.Forms.DockStyle.Top;
-            propertyGridGenFunc.HelpBackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            propertyGridGenFunc.HelpBackColor = System.Drawing.Color.FromArgb(230, 230, 230);
             propertyGridGenFunc.Location = new System.Drawing.Point(3, 37);
             propertyGridGenFunc.Name = "propertyGridGenFunc";
-            propertyGridGenFunc.Size = new System.Drawing.Size(516, 296);
+            propertyGridGenFunc.Size = new System.Drawing.Size(528, 296);
             propertyGridGenFunc.TabIndex = 9;
             // 
             // comboBoxGenFunc
             // 
-            comboBoxGenFunc.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
             tlpFunction.SetColumnSpan(comboBoxGenFunc, 3);
             comboBoxGenFunc.Dock = System.Windows.Forms.DockStyle.Top;
             comboBoxGenFunc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -258,7 +254,7 @@
             comboBoxGenFunc.Location = new System.Drawing.Point(200, 3);
             comboBoxGenFunc.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             comboBoxGenFunc.Name = "comboBoxGenFunc";
-            comboBoxGenFunc.Size = new System.Drawing.Size(316, 28);
+            comboBoxGenFunc.Size = new System.Drawing.Size(328, 28);
             comboBoxGenFunc.TabIndex = 8;
             comboBoxGenFunc.SelectedIndexChanged += ComboBoxGenFunc_SelectedIndexChanged;
             // 
@@ -277,12 +273,12 @@
             // buttonGenerate
             // 
             buttonGenerate.AutoSize = true;
-            buttonGenerate.BackColor = System.Drawing.Color.FromArgb(190, 190, 190);
             tlpFunction.SetColumnSpan(buttonGenerate, 5);
             buttonGenerate.Dock = System.Windows.Forms.DockStyle.Top;
             buttonGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonGenerate.Location = new System.Drawing.Point(12, 408);
-            buttonGenerate.Margin = new System.Windows.Forms.Padding(12, 6, 12, 6);
+            buttonGenerate.Font = new System.Drawing.Font("Space Grotesk Light", 10.25F, System.Drawing.FontStyle.Bold);
+            buttonGenerate.Location = new System.Drawing.Point(18, 408);
+            buttonGenerate.Margin = new System.Windows.Forms.Padding(18, 6, 18, 6);
             buttonGenerate.Name = "buttonGenerate";
             buttonGenerate.Size = new System.Drawing.Size(498, 32);
             buttonGenerate.TabIndex = 7;
@@ -303,7 +299,6 @@
             // 
             // nudMinGen
             // 
-            nudMinGen.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
             nudMinGen.DecimalPlaces = 4;
             nudMinGen.Dock = System.Windows.Forms.DockStyle.Top;
             nudMinGen.Location = new System.Drawing.Point(106, 340);
@@ -329,7 +324,6 @@
             // 
             // nudMaxGen
             // 
-            nudMaxGen.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
             nudMaxGen.DecimalPlaces = 4;
             nudMaxGen.Location = new System.Drawing.Point(248, 340);
             nudMaxGen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -354,7 +348,6 @@
             // 
             // nudNbOfPointsGen
             // 
-            nudNbOfPointsGen.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
             nudNbOfPointsGen.Dock = System.Windows.Forms.DockStyle.Top;
             nudNbOfPointsGen.Location = new System.Drawing.Point(106, 373);
             nudNbOfPointsGen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -370,14 +363,13 @@
             // 
             tlpMain.AutoSize = true;
             tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            tlpMain.BackColor = System.Drawing.SystemColors.ActiveBorder;
             tlpMain.ColumnCount = 1;
             tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpMain.Controls.Add(tlpFunction, 0, 4);
             tlpMain.Controls.Add(labelFromFunction, 0, 3);
             tlpMain.Controls.Add(tlpFromFile, 0, 2);
             tlpMain.Controls.Add(labelFromFile, 0, 1);
-            tlpMain.Controls.Add(label1, 0, 0);
+            tlpMain.Controls.Add(labelTitle, 0, 0);
             tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpMain.Location = new System.Drawing.Point(0, 0);
             tlpMain.Name = "tlpMain";
@@ -388,7 +380,7 @@
             tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpMain.Size = new System.Drawing.Size(534, 717);
+            tlpMain.Size = new System.Drawing.Size(546, 717);
             tlpMain.TabIndex = 6;
             // 
             // UserControlInputData
@@ -402,7 +394,7 @@
             Font = new System.Drawing.Font("Space Grotesk Light", 10.25F);
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "UserControlInputData";
-            Size = new System.Drawing.Size(534, 717);
+            Size = new System.Drawing.Size(546, 717);
             tlpFromFile.ResumeLayout(false);
             tlpFromFile.PerformLayout();
             tlpFunction.ResumeLayout(false);
@@ -417,7 +409,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelFromFile;
         private System.Windows.Forms.TableLayoutPanel tlpFromFile;
         private System.Windows.Forms.Label label3;

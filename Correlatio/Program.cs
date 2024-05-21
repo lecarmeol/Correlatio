@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Correlatio
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         /// Point d'entrée principal de l'application.
@@ -21,6 +21,7 @@ namespace Correlatio
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            ColorTheme.FromXML(AppDomain.CurrentDomain.BaseDirectory + "ColorPalette.xml");
             UserControlGraphView ucGraphView = new();
             UserControlInputData ucInputData = new();
             UserControlFitData ucFitData = new();

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<palette>
+  <element name="bg">#f1efef</element>
+  <element name="bgPanel">#e7e4e5</element>
+  <element name="title">#ca4e33</element>
+  <element name="subtitle">#3454d1</element>
+  <element name="subtitle2">#6494aa</element>
+  <element name="text">#3a3335</element>
+</palette>

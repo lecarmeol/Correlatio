@@ -12,9 +12,26 @@ namespace Correlatio.Views
 {
     public partial class UserControlFitData : UserControl, IFitDataView
     {
+        private readonly Color titleMouseOut;
+        private readonly Color titleMouseIn;
+
         public UserControlFitData()
         {
             InitializeComponent();
+            BackColor = ColorTheme.BG;
+            tlpExport.BackColor = ColorTheme.BGPanel;
+            tlpFunction.BackColor = ColorTheme.BGPanel;
+            labelTitle.ForeColor = ColorTheme.Title;
+            labelFromFile.ForeColor = ColorTheme.SubTitle;
+            labelFromFunction.ForeColor = ColorTheme.SubTitle;
+            titleMouseOut = ColorTheme.BGPanel;
+            titleMouseIn = ColorTheme.AdjustLuminance(ColorTheme.BGPanel, -10);
+            labelFromFile.BackColor = titleMouseOut;
+            labelFromFunction.BackColor = titleMouseOut;
+            buttonDoFit.BackColor = ColorTheme.SubTitle2;
+            buttonExport.BackColor = ColorTheme.SubTitle2;
+            buttonDoFit.ForeColor = ColorTheme.BG;
+            buttonExport.BackColor = ColorTheme.BG;
         }
 
         public event Action Fit;
@@ -72,6 +89,16 @@ namespace Correlatio.Views
         public void UpdateErrorMessage(string errorMessage)
         {
             MessageBox.Show(this, errorMessage);
+        }
+
+        private void LabelSubtitle_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = titleMouseIn;
+        }
+
+        private void LabelSubtitle_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = titleMouseOut;
         }
     }
 }

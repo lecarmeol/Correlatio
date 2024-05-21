@@ -12,9 +12,26 @@ namespace Correlatio.Views
 {
     public partial class UserControlInputData : UserControl, IInputDataView
     {
+        private readonly Color titleMouseOut;
+        private readonly Color titleMouseIn;
+
         public UserControlInputData()
         {
             InitializeComponent();
+            BackColor = ColorTheme.BG;
+            tlpFromFile.BackColor = ColorTheme.BGPanel;
+            tlpFunction.BackColor = ColorTheme.BGPanel;
+            labelTitle.ForeColor = ColorTheme.Title;
+            labelFromFile.ForeColor = ColorTheme.SubTitle;
+            labelFromFunction.ForeColor = ColorTheme.SubTitle;
+            titleMouseOut = ColorTheme.BGPanel;
+            titleMouseIn = ColorTheme.AdjustLuminance(ColorTheme.BGPanel, -10);
+            labelFromFile.BackColor = titleMouseOut;
+            labelFromFunction.BackColor = titleMouseOut;
+            buttonLoadFromFile.BackColor = ColorTheme.SubTitle2;
+            buttonGenerate.BackColor = ColorTheme.SubTitle2;
+            buttonLoadFromFile.ForeColor = ColorTheme.BG;
+            buttonGenerate.BackColor= ColorTheme.BG;
         }
 
         public event Action<double, double, int> Generate;
@@ -75,6 +92,16 @@ namespace Correlatio.Views
         public void UpdateErrorMessage(string errorMessage)
         {
             MessageBox.Show(this, errorMessage);
+        }
+
+        private void LabelSubtitle_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = titleMouseIn;
+        }
+
+        private void LabelSubtitle_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = titleMouseOut;
         }
     }
 }

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            label1 = new System.Windows.Forms.Label();
+            labelTitle = new System.Windows.Forms.Label();
             formsPlot = new ScottPlot.WinForms.FormsPlot();
             tlpExport = new System.Windows.Forms.TableLayoutPanel();
             buttonExportSvg = new System.Windows.Forms.Button();
             nudHeight = new System.Windows.Forms.NumericUpDown();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
+            labelExportTitle = new System.Windows.Forms.Label();
             nudWidth = new System.Windows.Forms.NumericUpDown();
             buttonExportPng = new System.Windows.Forms.Button();
             tlpMain.SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             tlpMain.ColumnCount = 1;
             tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tlpMain.Controls.Add(label1, 0, 0);
+            tlpMain.Controls.Add(labelTitle, 0, 0);
             tlpMain.Controls.Add(formsPlot, 0, 1);
             tlpMain.Controls.Add(tlpExport, 0, 2);
             tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -63,19 +63,18 @@
             tlpMain.Size = new System.Drawing.Size(747, 786);
             tlpMain.TabIndex = 0;
             // 
-            // label1
+            // labelTitle
             // 
-            label1.AutoSize = true;
-            label1.BackColor = System.Drawing.SystemColors.ControlLight;
-            label1.Dock = System.Windows.Forms.DockStyle.Top;
-            label1.Font = new System.Drawing.Font("Space Grotesk Light Medium", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(0, 0);
-            label1.Margin = new System.Windows.Forms.Padding(0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(747, 25);
-            label1.TabIndex = 1;
-            label1.Text = "GRAPH VIEW";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            labelTitle.AutoSize = true;
+            labelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            labelTitle.Font = new System.Drawing.Font("Space Grotesk Light Medium", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            labelTitle.Location = new System.Drawing.Point(0, 0);
+            labelTitle.Margin = new System.Windows.Forms.Padding(0);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new System.Drawing.Size(747, 25);
+            labelTitle.TabIndex = 1;
+            labelTitle.Text = "GRAPH VIEW";
+            labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formsPlot
             // 
@@ -99,7 +98,7 @@
             tlpExport.Controls.Add(nudHeight, 3, 1);
             tlpExport.Controls.Add(label4, 2, 1);
             tlpExport.Controls.Add(label3, 0, 1);
-            tlpExport.Controls.Add(label2, 0, 0);
+            tlpExport.Controls.Add(labelExportTitle, 0, 0);
             tlpExport.Controls.Add(nudWidth, 1, 1);
             tlpExport.Controls.Add(buttonExportPng, 0, 2);
             tlpExport.Dock = System.Windows.Forms.DockStyle.Left;
@@ -160,18 +159,18 @@
             label3.Text = "Width (px):";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // labelExportTitle
             // 
-            label2.AutoSize = true;
-            tlpExport.SetColumnSpan(label2, 4);
-            label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            label2.Font = new System.Drawing.Font("Space Grotesk Light", 10.25F, System.Drawing.FontStyle.Bold);
-            label2.Location = new System.Drawing.Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(389, 20);
-            label2.TabIndex = 2;
-            label2.Text = "Export graph";
-            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            labelExportTitle.AutoSize = true;
+            tlpExport.SetColumnSpan(labelExportTitle, 4);
+            labelExportTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            labelExportTitle.Font = new System.Drawing.Font("Space Grotesk Light", 10.25F, System.Drawing.FontStyle.Bold);
+            labelExportTitle.Location = new System.Drawing.Point(3, 0);
+            labelExportTitle.Name = "labelExportTitle";
+            labelExportTitle.Size = new System.Drawing.Size(389, 20);
+            labelExportTitle.TabIndex = 2;
+            labelExportTitle.Text = "Export graph";
+            labelExportTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nudWidth
             // 
@@ -219,10 +218,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTitle;
         private ScottPlot.WinForms.FormsPlot formsPlot;
         private System.Windows.Forms.TableLayoutPanel tlpExport;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelExportTitle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nudWidth;
         private System.Windows.Forms.NumericUpDown nudHeight;

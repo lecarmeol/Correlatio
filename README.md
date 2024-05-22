@@ -63,3 +63,15 @@ Versatile data fit application for lazy scientists
     4.4 Graph can also be exported by right-clicking on it and choosing "Save image" or "Show/Hide export panel" to get size options
 
 ![Export graph](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/06_Export_graph.png)   
+
+### Adding custom functions to the app
+
+All functions used by the App are described in the file ListOfFunctions.xml located in the App directory (or in the RICPFitter source code for Dev).
+
+![ListOfFunctions content](https://github.com/lecarmeol/Correlatio/blob/main/dev/graphics/XML%20with%20functions.png)
+
+To add a function, a new "Function" tag must be added. It must contain the above information :
+1. A name as attribute
+2. An "Equation" tag written as C# code. All mathematical operations available are those present in the [Math library of .NET 8](https://learn.microsoft.com/en-us/dotnet/api/system.math?view=net-8.0)
+3. A "Variable" tag as written in the equation
+4. A series of "Parameter" tags as written in the equation. They can have 2 attributes "description" as long name of the parameter and "defaultValue". WARNING : the maximum number of parameters is 5 !

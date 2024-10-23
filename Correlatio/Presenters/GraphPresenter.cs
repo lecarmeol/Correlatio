@@ -31,7 +31,7 @@ namespace Correlatio.Presenters
 
         private void FitBox_FitDataChanged(IFittable function, double[] x, double[] y)
         {
-            string fitInfo = function.Description + Environment.NewLine;
+            string fitInfo = function.Equation + Environment.NewLine;
             foreach(var param in function.Parameters)
             {
                 fitInfo += $"{param.Name} = {param.Value}" + Environment.NewLine;

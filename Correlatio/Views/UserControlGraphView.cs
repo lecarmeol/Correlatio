@@ -123,8 +123,8 @@ namespace Correlatio.Views
         public void UpdateInputInfo(string title, string xLabel, string yLabel)
         {
             formsPlot.Plot.Title(title);
-            formsPlot.Plot.XLabel(xLabel);
-            formsPlot.Plot.YLabel(yLabel);
+            if (xLabel != null) formsPlot.Plot.XLabel(xLabel);
+            if (yLabel != null) formsPlot.Plot.YLabel(yLabel);
         }
 
         private void ButtonExportPng_Click(object sender, EventArgs e)
